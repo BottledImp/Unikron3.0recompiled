@@ -74,12 +74,9 @@ public class Movement : MonoBehaviour
                 Boxcollider.enabled = false;
             }
         }
-        if (Input.GetKeyUp (KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            if (grounded)
-            {
-                Boxcollider.enabled = true;
-            }
+           Boxcollider.enabled = true;
         }
     }
 
