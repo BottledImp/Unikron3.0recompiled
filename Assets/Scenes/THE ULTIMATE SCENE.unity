@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 55809890}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 541806179}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1048504374565640, guid: eceb6b0abdb77c34f96a46e44d0f05c4, type: 2}
   pivot: {fileID: 1458359924}
-  startTime: 0
+  startTime: 0.2
 --- !u!1 &1450735574
 GameObject:
   m_ObjectHideFlags: 0

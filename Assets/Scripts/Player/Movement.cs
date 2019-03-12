@@ -47,8 +47,26 @@ public class Movement : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.CompareTag("Ground")) {
+            grounded = true;
+        }
+        else {
+            grounded = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.collider.CompareTag("Ground")) {
+            grounded = false;
+        }
+        
+    }
+
     private void Jump() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        
+        if (Input.GetKeyDown(KeyCode.Space) && grounded) {
             rig.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
         }
 
