@@ -7,11 +7,12 @@ public class Movement : MonoBehaviour
     #region Variables
     public float speed = 3f;
     public float jumpSpeed = 2f;
+    public float crouchspeed = 1f;
     private Rigidbody2D rig;
     public float inputVector;
     public GameObject holder;
     private bool grounded;
-
+    public BoxCollider2D Boxcollider;
     #endregion
 
     private void Start()
@@ -22,8 +23,10 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        Crouch();
+        print(grounded);
         Jump();
-
+        print(grounded);
     }
 
     
@@ -52,9 +55,7 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag("Ground")) {
             grounded = true;
         }
-        else {
-            grounded = false;
-        }
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
@@ -62,6 +63,24 @@ public class Movement : MonoBehaviour
             grounded = false;
         }
         
+    }
+
+    private void Crouch()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if (grounded)
+            {
+                Boxcollider.enabled = false;
+            }
+        }
+        if (Input.GetKeyUp (KeyCode.LeftControl))
+        {
+            if (grounded)
+            {
+                Boxcollider.enabled = true;
+            }
+        }
     }
 
     private void Jump() {
