@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
     public float inputVector;
     public GameObject holder;
     private bool grounded;
-    public float JumpForce = 400;
 
     #endregion
 
@@ -23,18 +22,11 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
-
-
-    }
-
-    private void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rig.AddForce(new Vector2(rig.velocity.x, JumpForce));
-        }
+        Jump();
 
     }
+
+    
 
     private void Move()
     {
@@ -55,8 +47,13 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void Jump() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            rig.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+        }
 
-   
+    }
+
 
 
 }
