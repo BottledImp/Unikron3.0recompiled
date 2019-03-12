@@ -23,10 +23,10 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        Run();
         Crouch();
-        print(grounded);
         Jump();
-        print(grounded);
+
     }
 
     
@@ -77,6 +77,21 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
            Boxcollider.enabled = true;
+        }
+    }
+
+    private void Run()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (grounded)
+            {
+                speed = speed * 2;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = speed / 2;
         }
     }
 
