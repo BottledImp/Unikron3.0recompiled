@@ -22,18 +22,20 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        print(inputVector);
         Move();
-        Run();
         Crouch();
+        print(inputVector);
+        Run();
         Jump();
-
+        
     }
 
     
 
     private void Move()
     {
-
+        
         inputVector = Input.GetAxis("Horizontal");
 
         if (inputVector != 0)
@@ -48,6 +50,7 @@ public class Movement : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+        
     }
 
 
@@ -67,8 +70,10 @@ public class Movement : MonoBehaviour
 
     private void Crouch()
     {
+        
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
+
             if (grounded)
             {
                 Boxcollider.enabled = false;
@@ -76,7 +81,7 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-           Boxcollider.enabled = true;
+            Boxcollider.enabled = true;
         }
     }
 
