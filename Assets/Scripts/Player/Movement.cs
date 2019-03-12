@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rig.AddForce(new Vector2(rig.velocity.x, JumpForce));
         }

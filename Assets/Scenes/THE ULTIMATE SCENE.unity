@@ -826,7 +826,7 @@ MonoBehaviour:
   speed: 7.44
   jumpSpeed: 2
   inputVector: 0
-  holder: {fileID: 0}
+  holder: {fileID: 861919128}
   JumpForce: 400
 --- !u!212 &1450735580
 SpriteRenderer:
