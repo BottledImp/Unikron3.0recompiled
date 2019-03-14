@@ -1256,7 +1256,7 @@ GameObject:
   m_Layer: 0
   m_Name: Holder
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1386,6 +1386,8 @@ MonoBehaviour:
   jumpSpeed: 35
   crouchspeed: 1
   inputVector: 0
+  isCrouching: 0
+  isSliding: 0
   holder: {fileID: 861919128}
   Boxcollider: {fileID: 1450735576}
 --- !u!212 &1450735580
@@ -1461,7 +1463,7 @@ GameObject:
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
