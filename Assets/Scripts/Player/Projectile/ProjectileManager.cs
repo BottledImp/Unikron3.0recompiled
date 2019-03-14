@@ -31,7 +31,7 @@ public class ProjectileManager : MonoBehaviour {
     //Mask for environment and enemy
     public LayerMask mask;
     private void Damage () {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 0.5f, mask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 0.01f, mask);
         if (hit.collider.CompareTag("Enemy")) {
             hit.collider.GetComponent<EnemyHealth>().health -= 10;
             //Instantiate(Effect, transform.position, transform.rotation);
