@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public float jumpSpeed = 2f;
     public float crouchspeed = 1f;
     public float inputVector;
-    public float Playerhealth = 100f
+    public float Playerhealth = 100f;
     
 
     
