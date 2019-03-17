@@ -10,23 +10,25 @@ public class Movement : MonoBehaviour
     public float jumpSpeed = 2f;
     public float crouchspeed = 1f;
     public float inputVector;
-    public float Playerhealth = 100f;
+    public int Playerhealth = 100;
+
+    #endregion
+
+    #region Bools
+    public bool Crouching;
+    public bool Sliding;
+    public bool Jumping;
+    public bool Falling;
+    public bool Running;
+    public bool grounded;
     
+    #endregion
 
-    
-    public bool isCrouching;
-    public bool isSliding;
-    private bool grounded;
-      
-
-
+    #region Misc
     private Rigidbody2D rig;
     public GameObject holder;
     public BoxCollider2D Boxcollider;
     #endregion
-
-
-
 
 
     private void Start()
@@ -41,11 +43,11 @@ public class Movement : MonoBehaviour
         Crouch();
         Run();
         Jump();
-
-        
+        //Health_n_Stocks();
     }
 
-    
+
+
 
     private void Move()
     {
@@ -79,50 +81,73 @@ public class Movement : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        
+
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.CompareTag("Ground")) {
+    //private void Health_Stocks_Souls()
+    //{
+        
+    //}
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
             grounded = true;
+            Falling = false;
         }
-        
+
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.collider.CompareTag("Ground")) {
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
             grounded = false;
         }
-        
+
     }
+
 
     private void Crouch()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (grounded)
             {
                 Boxcollider.enabled = false;
-                isCrouching = true;
+                Crouching = true;
             }
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.S))
         {
             Boxcollider.enabled = true;
-            isCrouching = false;
+            Crouching = false;
         }
 
-        if (isCrouching && !isSliding)
+        if (Running && Crouching)
+        {
+            Sliding = true;
+        }
+        else if (Running && (Crouching || !Crouching))
+        {
+            Sliding = false;
+        }
+
+        if (Crouching && !Sliding)
         {
             crouchspeed = 0.5f;
         }
-        else if (!isCrouching && !isSliding)
+        else if ((!Crouching && !Sliding) || (Crouching && Sliding))
         {
             crouchspeed = 1f;
         }
     }
+
 
     private void Run()
     {
@@ -131,33 +156,35 @@ public class Movement : MonoBehaviour
             if (grounded)
             {
                 speed = speed * 2;
+                Running = true;
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speed = speed / 2;
+            Running = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.S))
-        {
-            isSliding = true;
-        }
-        else
-        {
-            isSliding = false;
-        }
     }
 
 
-
     private void Jump() {
-        
-        if (Input.GetKeyDown(KeyCode.Space) && grounded) {
+
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
             rig.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
-
         }
-         
 
+        if (rig.velocity.y > 0.2 && !grounded)
+        {
+            Jumping = true;
+            Falling = false;
+        }
+        else if (rig.velocity.y < -0.2 && !grounded)
+        {
+            Jumping = false;
+            Falling = true;
+        }
     }
 
 
