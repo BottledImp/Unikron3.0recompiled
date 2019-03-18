@@ -10,7 +10,6 @@ public class Movement : MonoBehaviour
     public float jumpSpeed = 2f;
     public float crouchspeed = 1f;
     public float inputVector;
-    public int Playerhealth = 100;
 
     #endregion
 
@@ -43,7 +42,6 @@ public class Movement : MonoBehaviour
         Crouch();
         Run();
         Jump();
-        //Health_n_Stocks();
     }
 
 
@@ -83,12 +81,6 @@ public class Movement : MonoBehaviour
         }
 
     }
-
-
-    //private void Health_Stocks_Souls()
-    //{
-        
-    //}
 
 
     private void OnCollisionEnter2D(Collision2D collision)

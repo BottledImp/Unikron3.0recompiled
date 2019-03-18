@@ -5,6 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     public float health = 100f;
+    [SerializeField]
+    float PH;
+
+    private void Start()
+    {
+        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PStats>().Playerhealth;
+    }
 
     private void Update() {
         Die();
