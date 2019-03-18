@@ -24,4 +24,16 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
+
+    public LayerMask mask;
+    private void Damage()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, 0.01f, mask);
+        if (hit.collider.CompareTag("Player"))
+        {
+            hit.collider.GetComponent<PStats>().Playerhealth -= 10;
+            //Instantiate(Effect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+    }
 }

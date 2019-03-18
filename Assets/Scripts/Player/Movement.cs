@@ -20,6 +20,8 @@ public class Movement : MonoBehaviour
     public bool Falling;
     public bool Running;
     public bool grounded;
+    public bool Walking;
+
     
     #endregion
 
@@ -53,20 +55,24 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             movespeed = -speed;
+            Walking = true;
         }
         else if (Input.GetKeyUp(KeyCode.A))
         {
             movespeed = 0;
+            Walking = false;
         }
 
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             movespeed = speed;
+            Walking = true;
         }
         else if (Input.GetKeyUp(KeyCode.D))
         {
             movespeed = 0;
+            Walking = false;
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(movespeed * crouchspeed, GetComponent<Rigidbody2D>().velocity.y);

@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4584065628188824}
   - component: {fileID: 212914466171982548}
+  - component: {fileID: 114453827778655568}
   - component: {fileID: 114297749154027756}
   - component: {fileID: 50173905442299954}
   - component: {fileID: 61858627116074824}
@@ -130,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747148740860648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69, z: -10}
+  m_LocalPosition: {x: 0, y: 0.69, z: -88.1}
   m_LocalScale: {x: 1.7905, y: 2.4619377, z: 1.7905}
   m_Children: []
   m_Father: {fileID: 4584065628188824}
@@ -286,9 +287,6 @@ MonoBehaviour:
   jumpSpeed: 35
   crouchspeed: 1
   inputVector: 0
-  Playerhealth: 100
-  Jtime: 0.2
-  cntr: 0
   Crouching: 0
   Sliding: 0
   Jumping: 0
@@ -297,6 +295,20 @@ MonoBehaviour:
   grounded: 0
   holder: {fileID: 1241182016873098}
   Boxcollider: {fileID: 61858627116074824}
+--- !u!114 &114453827778655568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381136044806474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b1a57643f7f4a4f9c7513e96e1fa6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Playerhealth: 100
+  PStocks: 0
+  PSouls: 0
 --- !u!114 &114670966949153690
 MonoBehaviour:
   m_ObjectHideFlags: 1

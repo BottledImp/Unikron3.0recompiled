@@ -19,10 +19,12 @@ public class Shoot : MonoBehaviour {
         Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot - 90); //Add offset
+
         if (time <= 0) {
             if (Input.GetMouseButtonUp(0)) {
                 Instantiate(projectile, pivot.transform.position, pivot.transform.rotation);
                 time = startTime;
+
             }
         }
         else {

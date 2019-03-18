@@ -7,6 +7,7 @@ public class PStats : MonoBehaviour {
     public float Playerhealth;
     public int PStocks;
     public int PSouls;
+    bool isDead;
 
 
 
@@ -19,7 +20,19 @@ public class PStats : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
+
+    void PlayerDeath()
+    {
+        if (Playerhealth <= 0)
+        {
+            isDead = true;
+            //Animación
+            Destroy(gameObject, 0.5f);
+        }
+    }   
+    
 }
