@@ -29,6 +29,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rig;
     public GameObject holder;
     public BoxCollider2D Boxcollider;
+    public Animator playeramanager;
     #endregion
 
 
@@ -56,11 +57,14 @@ public class Movement : MonoBehaviour
         {
             movespeed = -speed;
             Walking = true;
+
+
         }
         else if (Input.GetKeyUp(KeyCode.A))
         {
             movespeed = 0;
             Walking = false;
+
         }
 
 
@@ -68,6 +72,7 @@ public class Movement : MonoBehaviour
         {
             movespeed = speed;
             Walking = true;
+
         }
         else if (Input.GetKeyUp(KeyCode.D))
         {
@@ -80,10 +85,17 @@ public class Movement : MonoBehaviour
         if (movespeed < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            playeramanager.SetBool("isWalking", true);
         }
         else if (movespeed > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            playeramanager.SetBool("isWalking", true);
+        }
+
+        if (movespeed == 0)
+        {
+            playeramanager.SetBool("isWalking", false);
         }
 
     }
@@ -155,12 +167,14 @@ public class Movement : MonoBehaviour
             {
                 speed = speed * 2;
                 Running = true;
+                playeramanager.SetBool("isRunning", true);
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speed = speed / 2;
             Running = false;
+            playeramanager.SetBool("isRunning", false);
         }
 
     }
