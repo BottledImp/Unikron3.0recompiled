@@ -107,6 +107,7 @@ public class Movement : MonoBehaviour
         {
             grounded = true;
             Falling = false;
+            playeramanager.SetBool("isGrounded", true);
         }
 
     }
@@ -117,6 +118,7 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             grounded = false;
+            playeramanager.SetBool("isGrounded", false);
         }
 
     }
@@ -187,15 +189,18 @@ public class Movement : MonoBehaviour
             rig.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
         }
 
-        if (rig.velocity.y > 0.2 && !grounded)
+        if (rig.velocity.y > 2f && !grounded)
         {
             Jumping = true;
             Falling = false;
+            playeramanager.SetBool("isJumping", true);
         }
-        else if (rig.velocity.y < -0.2 && !grounded)
+        else if (rig.velocity.y < -2f && !grounded)
         {
             Jumping = false;
             Falling = true;
+            playeramanager.SetBool("Jumping", false);
+            playeramanager.SetBool("isFalling", true);
         }
     }
 

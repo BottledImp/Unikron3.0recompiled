@@ -1879,7 +1879,7 @@ Animator:
   m_GameObject: {fileID: 1450735574}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 506710f78a5ee5b4c989ac5b1c00740a, type: 2}
+  m_Controller: {fileID: 9100000, guid: e130090be2476444091f245d7b167575, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2080,12 +2080,12 @@ Prefab:
     - target: {fileID: 61858627116074824, guid: fef63214cfd90124d8182bb30b0f8c00,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.50625
+      value: 1.0375
       objectReference: {fileID: 0}
     - target: {fileID: 61858627116074824, guid: fef63214cfd90124d8182bb30b0f8c00,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.26875
+      value: 2.475
       objectReference: {fileID: 0}
     - target: {fileID: 61858627116074824, guid: fef63214cfd90124d8182bb30b0f8c00,
         type: 2}
@@ -2115,7 +2115,7 @@ Prefab:
     - target: {fileID: 61858627116074824, guid: fef63214cfd90124d8182bb30b0f8c00,
         type: 2}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 61858627116074824, guid: fef63214cfd90124d8182bb30b0f8c00,
         type: 2}
@@ -2160,7 +2160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4864140014377110, guid: fef63214cfd90124d8182bb30b0f8c00, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.032
+      value: 1.151
       objectReference: {fileID: 0}
     - target: {fileID: 212914466171982548, guid: fef63214cfd90124d8182bb30b0f8c00,
         type: 2}
@@ -2193,6 +2193,11 @@ Prefab:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114297749154027756, guid: fef63214cfd90124d8182bb30b0f8c00,
+        type: 2}
+      propertyPath: playeramanager
+      value: 
+      objectReference: {fileID: 1450735582}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fef63214cfd90124d8182bb30b0f8c00, type: 2}
   m_IsPrefabAsset: 0
